@@ -1,0 +1,41 @@
+const bodyParser = require('body-parser');
+const express = require('express');
+
+const app = express();
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+app.post('/opprettKunde', (req, res) => {
+
+    let navn = req.body.navn;
+    let adresse = req.body.adresse;
+
+    res.json({
+        kundeNr: 1,
+        navn: navn,
+        adresse: adresse
+    });
+});
+
+app.post('/opprettAvtale', (req, res) => {
+    let innhold = req.body.innhold;
+    let avtaleStatus = req.body.avtaleStatus;
+    res.json({
+        kundeNr: 1,
+        avtaleNr: 1,
+        innhold: innhold,
+        avtaleStatus: avtaleStatus
+    });
+});
+
+app.post('/sendAvtaleTilKunde', (req, res) => {
+    let innhold = req.body.innhold;
+    res.json({
+        kundeNr: 1,
+        avtaleNr: 1,
+        innhold: innhold,
+        avtaleStatus: "SENDT"
+    });
+});
+
+app.listen(3000);
