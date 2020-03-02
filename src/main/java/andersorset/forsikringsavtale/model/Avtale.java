@@ -2,7 +2,7 @@ package andersorset.forsikringsavtale.model;
 
 public class Avtale {
 
-    enum AvtaleStatus {
+    public enum AvtaleStatus {
         SENDT,
         IKKE_SENDT
     }
@@ -10,12 +10,15 @@ public class Avtale {
     private int kundeNr;
     private int avtaleNr;
     String avtaleStatus;
+    String innhold;
 
-    public Avtale(){
-        this.kundeNr = 1;
-        this.avtaleNr = 1;
+    public Avtale(int kundeNr, String innhold){
+        this.kundeNr = kundeNr;
+        this.innhold = innhold;
         this.avtaleStatus = AvtaleStatus.IKKE_SENDT.toString();
     }
+
+    public Avtale(){}
 
     public int getKundeNr() {
         return kundeNr;
@@ -39,5 +42,18 @@ public class Avtale {
 
     public void setAvtaleStatus(String avtaleStatus) {
         this.avtaleStatus = avtaleStatus;
+    }
+
+    public String getInnhold() {
+        return innhold;
+    }
+
+    public void setInnhold(String innhold) {
+        this.innhold = innhold;
+    }
+
+    @Override
+    public String toString(){
+        return "[ avtaleNr: " + avtaleNr + ", kundeNr: " + kundeNr + ", avtaleStatus: " + avtaleStatus + ", innhold: " + innhold + "]";
     }
 }

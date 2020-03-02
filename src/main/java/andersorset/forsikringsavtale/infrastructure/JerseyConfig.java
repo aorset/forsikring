@@ -1,4 +1,4 @@
-package andersorset.forsikringsavtale;
+package andersorset.forsikringsavtale.infrastructure;
 
 
 import andersorset.forsikringsavtale.controller.InsuranceController;

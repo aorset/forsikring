@@ -13,12 +13,26 @@ repositories {
 }
 
 dependencies {
+	compile "javax.xml.bind:jaxb-api:2.3.0"
+	compile "javax.activation:activation:1.1"
+	compile "com.sun.xml.bind:jaxb-impl:2.3.0"
+	compile "com.sun.xml.bind:jaxb-core:2.3.0"
+	compile "com.sun.xml.ws:rt:2.3.0"
+	compile "com.sun.xml.ws:jaxws-rt:2.3.0"
+	compile "org.json:json:20180813"
 	implementation 'org.springframework.boot:spring-boot-starter-jersey'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
+	testCompile("org.mockito:mockito-core:2.+")
+	testCompile("org.mockito:mockito-junit-jupiter")
+	testCompile('org.junit.jupiter:junit-jupiter-params:5.2.0')
+	testRuntime("org.junit.jupiter:junit-jupiter-engine:5.5.1")
 }
 
 test {
-	useJUnitPlatform()
+	useJUnitPlatform{
+		includeEngines 'junit-jupiter'
+	}
+	testLogging.showStandardStreams = true
 }

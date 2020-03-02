@@ -1,19 +1,21 @@
 package andersorset.forsikringsavtale.controller;
 
 import andersorset.forsikringsavtale.model.Avtale;
+import andersorset.forsikringsavtale.model.CreateAvtaleVO;
+import andersorset.forsikringsavtale.model.ReturnAvtaleVO;
 import andersorset.forsikringsavtale.service.InsuranceService;
-import org.springframework.stereotype.Service;
-
-import javax.management.Notification;
-import javax.print.attribute.standard.Media;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 
-@Service
+@Controller
 @Path("/insurance")
 public class InsuranceController {
 
+
+
+    @Autowired
     InsuranceService insuranceService;
     // Opprett avtale ->
 
@@ -21,11 +23,17 @@ public class InsuranceController {
 
     @POST
     @Path("/opprett/")
+    @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Avtale getAvtale(){
-        insuranceService = new InsuranceService();
-        Avtale avtale = insuranceService.opprettAvtale();
-        System.out.println("avtale = " + avtale.toString());
+    public ReturnAvtaleVO getAvtale(CreateAvtaleVO avtaleVO){
+        System.out.println(avtaleVO.getNavn() + " " + avtaleVO.getAdresse() + " " + avtaleVO.getAvtaleInnhold());
+
+        ReturnAvtaleVO avtale = insuranceService.opprettAvtale(
+                avtaleVO.getNavn(),
+                avtaleVO.getAdresse(),
+                avtaleVO.getAvtaleInnhold()
+        );
+
         return avtale;
     }
 
