@@ -1,6 +1,5 @@
 package andersorset.forsikringsavtale.infrastructure;
 
-
 import andersorset.forsikringsavtale.controller.InsuranceController;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.springframework.stereotype.Component;
