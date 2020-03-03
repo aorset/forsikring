@@ -15,21 +15,26 @@ avtalen med avtalestatus endret til SENDT.
 ## Hvordan kjøre ##
 
 ### Start node mock server (Fagsystem - Brevtjeneste) ###
-
+```
 cd mockServer
 npm install
 node mockServer.js &
+```
 
 ### Start spring boot server med jersey (jax-rs) REST API ###
+```
 cd ..
 gradle bootRun &
+```
 
 ### Kjør integrasjonstester av "Opprett kunde" og "Opprett avtale" (forutsetter kjørende node server) mot mock server fra integrasjonslaget ###
-
+```
 gradle test
+```
 
 ### Kjør ende-til-ende-test av "Opprett avtale" på integrasjonslag-controlleren ###
 
+```
 curl --header "Content-Type: application/json" \
   --request POST \
   --data '{
@@ -38,6 +43,7 @@ curl --header "Content-Type: application/json" \
 	"innhold": "Test-innhold"
 }' \
   http://localhost:8080/forsikring/opprett
+```
 
 ## Merknader til oppgaven ##
 
