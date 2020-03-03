@@ -31,9 +31,9 @@ app.post('/opprettAvtale', (req, res) => {
 app.post('/sendAvtaleTilKunde', (req, res) => {
     let innhold = req.body.innhold;
     res.json({
-        kundeNr: 1,
-        avtaleNr: 1,
-        innhold: innhold,
+        kundeNr: req.body.kundeNr,
+        avtaleNr: req.body.avtaleNr,
+        innhold: req.body.innhold,
         avtaleStatus: "SENDT"
     });
 });
