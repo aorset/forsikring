@@ -9,11 +9,11 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
 @Controller
-@Path("/insurance")
+@Path("/forsikring")
 public class InsuranceController {
 
     @Autowired
-    InsuranceService insuranceService;
+    private InsuranceService insuranceService;
 
     @POST
     @Path("/opprett/")

@@ -4,10 +4,10 @@ import java.util.HashMap;
 
 public class Kunde {
 
-    int kundeNr;
-    HashMap<Integer, Avtale> avtaleHashMap;
-    String navn;
-    String adresse;
+    private Integer kundeNr;
+    private HashMap<Integer, Avtale> avtaleHashMap;
+    private String navn;
+    private String adresse;
 
     public Kunde(String navn, String adresse){
         this.navn = navn;
@@ -20,7 +20,7 @@ public class Kunde {
         avtaleHashMap.put(avtale.getAvtaleNr(), avtale);
     }
 
-    public int getKundeNr() {
+    public Integer getKundeNr() {
         return kundeNr;
     }
 

@@ -7,10 +7,10 @@ public class Avtale {
         IKKE_SENDT
     }
 
-    private int kundeNr;
-    private int avtaleNr;
-    String avtaleStatus;
-    String innhold;
+    private Integer kundeNr;
+    private Integer avtaleNr;
+    private String avtaleStatus;
+    private String innhold;
 
     public Avtale(int kundeNr, String innhold){
         this.kundeNr = kundeNr;
@@ -20,7 +20,7 @@ public class Avtale {
 
     public Avtale(){}
 
-    public int getKundeNr() {
+    public Integer getKundeNr() {
         return kundeNr;
     }
 
@@ -28,7 +28,7 @@ public class Avtale {
         this.kundeNr = kundeNr;
     }
 
-    public int getAvtaleNr() {
+    public Integer getAvtaleNr() {
         return avtaleNr;
     }
 

@@ -11,7 +11,7 @@ app.post('/opprettKunde', (req, res) => {
     let adresse = req.body.adresse;
 
     res.json({
-        kundeNr: 1,
+        kundeNr: Math.floor(Math.random() * 100 + 1),
         navn: navn,
         adresse: adresse
     });
@@ -21,8 +21,8 @@ app.post('/opprettAvtale', (req, res) => {
     let innhold = req.body.innhold;
     let avtaleStatus = req.body.avtaleStatus;
     res.json({
-        kundeNr: 1,
-        avtaleNr: 1,
+        kundeNr: req.body.kundeNr,
+        avtaleNr: Math.floor(Math.random() * 100 + 1),
         innhold: innhold,
         avtaleStatus: avtaleStatus
     });

@@ -2,17 +2,16 @@ package andersorset.forsikringsavtale.dao;
 
 import andersorset.forsikringsavtale.controller.RestClient;
 import andersorset.forsikringsavtale.model.Kunde;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class KundeDao extends Throwable {
+public class KundeDao{
 
-    @Autowired
-    RestClient restClient;
+    public static final String OPPRETT_KUNDE_URI = "http://localhost:3000/opprettKunde";
 
-    public int opprettKunde(String navn, String adresse) throws Exception{
-        Kunde tempKunde = new Kunde(navn, adresse);
-        return restClient.opprettKunde(tempKunde).getKundeNr();
+    private RestClient restClient = new RestClient();
+
+    public Integer opprettKunde(String navn, String adresse){
+        return restClient.postKunde(new Kunde(navn, adresse), OPPRETT_KUNDE_URI).getKundeNr();
     }
 }
