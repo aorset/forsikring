@@ -1,4 +1,4 @@
-### Oppgave for Fremtind ###
+# Oppgave for Fremtind #
 Av Anders Orset
 
 ## Beskrivelse ##
@@ -12,22 +12,23 @@ samme informasjon med et avtalenummer.
 Til slutt kaller integrasjonslaget mockserveren en siste gang for å simulere brevtjenesten. Her returneres
 avtalen med avtalestatus endret til SENDT. 
 
+## Hvordan kjøre ##
 
-## Start node mock server (Fagsystem - Brevtjeneste) ##
+### Start node mock server (Fagsystem - Brevtjeneste) ###
 
 cd mockServer
 npm install
 node mockServer.js &
 
-## Start spring boot server med jersey (jax-rs) REST API ##
+### Start spring boot server med jersey (jax-rs) REST API ###
 cd ..
 gradle bootRun &
 
-## Kjør integrasjonstester av "Opprett kunde" og "Opprett avtale" (forutsetter kjørende node server) mot mock server fra integrasjonslaget ##
+### Kjør integrasjonstester av "Opprett kunde" og "Opprett avtale" (forutsetter kjørende node server) mot mock server fra integrasjonslaget ###
 
 gradle test
 
-## Kjør ende-til-ende-test av "Opprett avtale" på integrasjonslag-controlleren ##
+### Kjør ende-til-ende-test av "Opprett avtale" på integrasjonslag-controlleren ###
 
 curl --header "Content-Type: application/json" \
   --request POST \
