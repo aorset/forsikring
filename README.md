@@ -1,4 +1,4 @@
-# Oppgave for Fremtind #
+# Oppgave #
 Av Anders Orset
 
 ## Beskrivelse ##
